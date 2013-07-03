@@ -1,0 +1,298 @@
+/***********
+     Gerais
+************/
+body {
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+    font-size: 13px;
+    font-family: Arial;
+    color: white;
+    margin-top: 0px;
+}
+
+hr {
+    color: lightgrey;
+    background: lightgrey;
+    border: 0;
+    height: 1px;
+}
+
+h1 {
+	/*font-family: Georgia,"Times New Roman",Times,serif;*/
+	/* font-size: 35px; ou 1.9em */
+	line-height: 30px;
+	margin:0px;
+}
+
+h2 {
+	/* font-size:14px; ou 1.5em */
+	line-height:17px;
+	font-weight:normal;
+	margin-bottom:20px;
+}
+
+h3 {
+	/* font-size:12px; ou 1.1em */
+	line-height:14px;
+	color:#999;
+	font-weight:normal;
+	margin-bottom:10px;
+	margin-top:0px;
+}
+
+h4 {
+    font-size:1.1em;
+    text-decoration:none;
+    font-weight:normal;
+    color:#23A4FF;
+}
+
+input, select {
+    font-size:0.9em;
+}
+
+table {
+    margin-top:-10px;
+    margin-left:7px;
+}
+
+a {
+    color:#23A4FF;
+}
+
+#log {
+    position:absolute;
+    top:10px;
+    font-size:1.0em;
+    font-weight:bold;
+    color:#23A4FF;
+}
+
+/*TOOLTIPS*/
+.tip {
+    color: #111;
+    width: 139px;
+    background-color: white;
+    border:1px solid #ccc;
+    -moz-box-shadow:#555 2px 2px 8px;
+    -webkit-box-shadow:#555 2px 2px 8px;
+    -o-box-shadow:#555 2px 2px 8px;
+    box-shadow:#555 2px 2px 8px;
+    opacity:0.9;
+    filter:alpha(opacity=90);
+    font-size:10px;
+    font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+    padding:7px;
+}
+
+/***********************
+     Barra Estadão Dados
+************************/
+#img_estadao_dados {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+#barraEstadaoDados {
+  font-family: Arial, Helvetica, sans-serif;
+  /*-webkit-border-radius: 7px;
+  border-radius: 7px;*/
+  margin: 0;
+  padding: 5px 15px;
+  position: relative;
+  z-index: 5000;
+  height: 38px;
+  background: -moz-linear-gradient(
+      top,
+      #303030 0%,
+      #1a1a1a);
+  background: -webkit-gradient(
+      linear, left top, left bottom,
+      from(#303030),
+      to(#1a1a1a));
+  background-position: top left;
+}
+
+nav#barraEstadaoDados ul {
+  background: -moz-linear-gradient(
+      top,
+      #303030 0%,
+      #1a1a1a);
+  background: -webkit-gradient(
+      linear, left top, left bottom,
+      from(#303030),
+      to(#1a1a1a));
+  background-position: top left;
+  /*-moz-box-shadow: 3px 3px 10px 0 #444;
+  -webkit-box-shadow: 3px 3px 10px 0 #444;
+  */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  display: inline-table;
+  line-height:18px;
+}
+
+nav#barraEstadaoDados ul:after {
+  content: "":
+  clear: both;
+  display: block;
+}
+
+nav#barraEstadaoDados li > ul {
+    width: 0px;
+    height: 0px;
+    margin-top: 10px;
+}
+nav#barraEstadaoDados li:hover > ul {
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+nav#barraEstadaoDados ul li {
+  float: left;
+  border: 1px;
+  border-color: #fff;
+}
+
+.drop, .drop:hover {
+  padding-right: 15px;
+  background-image: url("../../base/imgs/drop.png");
+  background-repeat: no-repeat;
+  background-position: 100%;
+}
+
+nav#barraEstadaoDados ul li:hover {
+  background-image: none;
+  color: #A5E7EC;
+  text-shadow: 0px 0px 2px #fff;
+}
+
+nav#barraEstadaoDados ul li a {
+  padding: 9px 10px;
+  display: block;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav#barraEstadaoDados ul li:hover a {
+  color: #fff;
+}
+
+nav#barraEstadaoDados ul ul {
+  display: none;
+  background: -moz-linear-gradient(
+      top,
+      #303030 0%,
+      #1a1a1a);
+  background: -webkit-gradient(
+      linear, left top, left bottom,
+      from(#303030),
+      to(#1a1a1a));
+  background-position: top left;
+  -moz-box-shadow: 3px 3px 10px 0 #444;
+  -webkit-box-shadow: 3px 3px 10px 0 #444;
+  position: absolute;
+  top: 100%;
+  padding: 0;
+}
+
+nav#barraEstadaoDados ul ul li {
+  float: none;
+  border-top: 1px solid #303030;
+  border-bottom: 1px solid #1a1a1a;
+  position: relative;
+  white-space: nowrap;
+}
+
+nav#barraEstadaoDados ul ul li a {
+  padding: 9px 10px;
+  color: #fff;
+  font-weight: normal;
+}
+
+
+nav#barraEstadaoDados ul ul li a:hover {
+  color: #A5E7EC;
+  text-shadow: 0px 0px 1px #fff;
+}
+
+nav#barraEstadaoDados ul ul ul {
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+/**************
+     Cabeçalhos
+***************/
+
+header hgroup {
+    margin-top: 15px;
+}
+
+header hgroup h1 {
+    font-size: 1.9em;
+    color: black;
+}
+
+header hgroup h3 {
+    font-size: 1.1em;
+    color: #333;
+}
+
+#conteudo_principal hgroup {
+    margin-bottom: 15px;
+}
+
+#conteudo_principal hgroup h2 {
+    font-size: 1.5em;
+    color: #808080;
+    margin-top: 10px;
+}
+
+#conteudo_principal hgroup h4 {
+    color: #808080;
+    margin-top: 3px;
+}
+
+
+/****************
+    Conteúdo extra
+*****************/
+#leia_tambem {
+    font-size: 0.9em;
+    color: #404040;
+}
+
+#leia_tambem h1 {
+    font-weight: bold;
+}
+
+#fontes {
+    color: #000;
+    margin-bottom: 10px;
+}
+
+/********
+    Rodapé
+*********/
+footer {
+	font-size: 0.9em;
+	color: #666;
+	height: 10px;
+	padding: 10px 0;
+    margin-top: 15px;
+	border-top: 1px #666 dotted;
+	width: 980px;
+	float: none;
+}
+
+#infografico{
+	min-width:980px;
+	min-height:620px
+}

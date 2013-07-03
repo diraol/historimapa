@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Atlas Multimidia da História do Brasil</title>
+
+    <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+    <link type="text/css" rel="stylesheet" href="css/mapa.css"/> 
+    <!--link type="text/css" rel="stylesheet" href="css/estadao.css"/> 
+    <link type="text/css" rel="stylesheet" href="css/estadao.dados.css"/-->
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclustererplus/src/markerclusterer_packed.js"></script>
+    
+    <script type="text/javascript" src="dados/data.json"></script>
+
+</head>
+<body>
+    <script>/*
+    <header class="navbar navbar-inverse navbar-fixed-top">
+        <nav id="barraEstadaoParceiros" class="navbar-inner">
+           <a href="http://www.estadao.com.br/" target="_top" title="Estadão.com.br" class="lgBarraEstadaoParceiros"><img src="http://www.estadao.com.br/estadao/novo/img/logoEstadao.gif" width="150" height="27" border="0" alt="Estadão.com.br" target="_top" title="Estadão.com.br"></a><ul><li class="itemBarraEstadaoParceiros"><a href="http://politica.estadao.com.br/" target="_top" title="POLÍTICA">POLÍTICA</a></li><li class="itemBarraEstadaoParceiros"><a href="http://economia.estadao.com.br/" target="_top" title="ECONOMIA">ECONOMIA</a></li><li class="itemBarraEstadaoParceiros"><a href="http://www.estadao.com.br/internacional/" target="_top" title="INTERNACIONAL">INTERNACIONAL</a></li><li class="itemBarraEstadaoParceiros"><a href="http://www.estadao.com.br/esportes/" target="_top" title="ESPORTES">ESPORTES</a></li><li class="itemBarraEstadaoParceiros"><a href="http://link.estadao.com.br/" target="_top" title="TECNOLOGIA">TECNOLOGIA</a></li><li class="itemBarraEstadaoParceiros"><a href="http://divirta-se.estadao.com.br/" target="_top" title="DIVIRTA-SE">DIVIRTA-SE</a></li><li class="itemBarraEstadaoParceiros"><a href="http://pme.estadao.com.br/" target="_top" title="PME">PME</a></li><li class="itemBarraEstadaoParceiros"><a href="http://www.estadao.com.br/opiniao/" target="_top" title="OPINIÃO">OPINIÃO</a></li><li class="itemBarraEstadaoParceiros"><a href="http://radio.estadao.com.br/" target="_top" title="RÁDIO">RÁDIO</a></li><li class="itemBarraEstadaoParceiros"><a href="http://www.jt.com.br/" target="_top" title="JT">JT</a></li><li class="itemBarraEstadaoParceiros"><a href="http://www.territorioeldorado.limao.com.br/" target="_top" title="ELDORADO">ELDORADO</a></li><li class="itemBarraEstadaoParceiros"><a href="http://www.estadao.com.br/blogs/" target="_top" title="BLOGS">BLOGS</a></li><li class="itemBarraEstadaoParceiros"><a class="lastItemBarra" href="http://topicos.estadao.com.br/" target="_top" title="TÓPICOS">TÓPICOS</a></li></ul> 
+        </nav>
+        <nav id="" class="navbar-inner">
+            <ul class="row-fluid">
+                <li class="span 1">
+                  <figure id="img_estadao_dados">
+                    <img src="img/logo_estadao_dados.png" height="30px" title="Estadão.com.br" align="middle">
+                  </figure>
+                </li>
+                <li class="drop" class="span 11">
+                  <a href="/html/##REPLACE##">##REPLACE##</a> <!-- Aplicação atual -->
+                  <ul> <!-- Outras aplicações do Estadão Dados -->
+                    <li><a href="/html/basometro">Basômetro</a></li>
+                    <li><a href="/html/biomas2012">Biomas2012</a></li>
+                    <li><a href="/html/coligacoes">Coligações</a></li>
+                    <li><a href="/html/cotas">Cotas</a></li>
+                    <li><a href="/html/eleicoes2012">Eleições 2012</a></li>
+                    <li><a href="/html/fuvest2013">Fuvest 2013</a></li>
+                    <li><a href="/html/ideb">IDEB</a></li>
+                    <li><a href="/html/intencaodevoto">Intenção de Voto</a></li>
+                    <li><a href="/html/quespvcquer">Que SP vc quer?</a></li>
+                    <li><a href="/html/religiao">Religiões</a></li>
+                    <li><a href="/html/saopauloquebalanca">São Paulo que balança</a></li>
+                  </ul>
+                </li>
+                <!--li class="desativado"> <!-- Qualquer 'botão' desativado -->
+                  <!--a>do governo</a>
+                </li>
+                <li><!-- outros menus específicos de cada projeto -->
+                  <!--a>Lula 1</a>
+                  <ul>
+                    <li><a>Lula 2</a></li>
+                    <li><a>Dilma</a></li>
+                  </ul>
+                </li-->
+            </ul>
+        </nav>
+
+
+    </header>
+    */</script>
+
+    <section id="wrapper" class="container">
+        <div id="map"></div>
+        <!--div id="other_content"><h2 id="loc"></h2></div-->
+    </section>
+    
+    <section role="main" class="container-fluid" style="display:none;">
+        <article id="map-container" class="row-fluid">
+          <div id="map"></div>
+        </article>
+        <aside id="marker-content" class="row-fluid">
+            <div id="marker-video" class="span7">
+                <iframe id="current-video" width="640" height="360" src="http://www.youtube.com/embed/EQAN-oZcmPY" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div id="marker-text" class="span5 texto-auxiliar">
+                Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+
+                Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.
+
+                Casamentiss faiz malandris se pirulitá, Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer Ispecialista im mé intende tudis nuam golada, vinho, uiski, carirí, rum da jamaikis, só num pode ser mijis. Adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            </div>
+        </aside>
+
+        <div id="inline-actions" style="display:none;">
+          <span>Max zoom level:
+            <select id="zoom">
+              <option value="-1">Default</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+            </select>
+
+          </span>
+          <span class="item">Cluster size:
+            <select id="size">
+              <option value="-1">Default</option>
+              <option value="40">40</option>
+              <option value="50">50</option>
+              <option value="70">70</option>
+              <option value="80">80</option>
+            </select>
+          </span>
+          <span class="item">Cluster style:
+            <select id="style">
+              <option value="-1">Default</option>
+              <option value="0">People</option>
+              <option value="1">Conversation</option>
+              <option value="2">Heart</option>
+           </select>
+           <input id="refresh" type="button" value="Refresh Map" class="item"/>
+           <a href="advanced_example.html#" id="clear">Clear</a>
+       </div>
+    </section>
+    
+    <script type="text/javascript" src="js/mapa.js"></script>
+
+</body>
+</html>
