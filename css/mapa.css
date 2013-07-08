@@ -5,7 +5,6 @@ body, html {
 body {
   margin: 0;
   padding: 0;
-  /* padding: 10px 20px 20px; */
   font-family: Arial;
   font-size: 16px;
 }
@@ -24,18 +23,11 @@ body {
 #wrapper {
     width: 100%;
     height: 100%;
-    /*background: #eee;*/
 }
 
 #map {
     width: 100%;
-    height: 100%; /* height: 400px; */
-    /*background: transparent no-repeat 1 1;
-    float: left;
-    filter: alpha(opacity=60);
-    -moz-opacity: 0.6;
-    -khtml-opacity: 0.6;
-    opacity: 0.6;*/
+    height: 100%;
 }
 
 #actions {
@@ -58,31 +50,77 @@ body {
     background-color: #ccc;
 }
 
-
 .infobox-wrapper {
     display:none;
 }
 
-aside#marker-content {
-    padding: 3px;
-    margin: 0 !important;
-    border: 1px;
-    border-style: solid;
-    border-color: #ccc #ccc #999 #ccc;
-    -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
-    -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
-    box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
-}
-aside#marker-content div#marker-text {
-    overflow-y: scroll;
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    text-align: justify;
-    padding: 0 60px;
+#marker-content {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    margin: 50px 100px;
+    z-index: 2000;
+    width: calc(100% - 200px);
+    height: calc(100% - 100px);
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.3);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    outline: none;
+    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    opacity: 1;
 }
 
-aside#marker-content div#marker-video {
+#texto {
+    overflow-y: auto;
     margin: 0;
-    padding: 0;
+    padding: 0 70px;
+    font-size: 14px;
+    text-align: justify;
+    height: 100%;
+}
+
+#tab-content  {
+    padding: 9px 15px;
+}
+
+#localidade:before {
+}
+
+#localidade {
+}
+
+#video {
+    text-align: center;
+}
+
+/* transitions */
+#marker-content, #tab-content, .tab-content > .tab-pane, .tab-pane, .backdrop, .modal-header, #video, #texto, #myTab, #current-video {
+    transition: all 0.8s linear;
+    -o-transition: all 0.8s linear;
+    -moz-transition: all 0.8s linear;
+    -webkit-transition: all 0.8s linear;
+}
+/* BootStrap Improve */
+.tab-content > .tab-pane {
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
 }
